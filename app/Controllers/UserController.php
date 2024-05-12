@@ -16,8 +16,6 @@ class UserController extends Controller
 
     public function create()
     {
-
-//        Тут их отвалидировать создать массив и отправить в сервис
         return $this->render('User/create');
     }
     public function login()
@@ -32,6 +30,7 @@ class UserController extends Controller
     }
     public function edit()
     {
+//        Проверка на авторизацию
         if (!isset($_SESSION['auth'])){
             header('Location: /login');
             exit();
