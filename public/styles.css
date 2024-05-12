@@ -1,0 +1,19 @@
+body{
+    margin: 0px;
+}
+header{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+a{
+    text-decoration: none;
+}
+.headerButton{
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 10px;
+    background-color: darkgreen;
+    color: white;
+    border-radius: 5px;
+}
