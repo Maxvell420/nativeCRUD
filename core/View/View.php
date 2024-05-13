@@ -11,11 +11,11 @@ class View
     {
         $path = $this->path;
         $data = $this->data;
-        return $this->renderLayout($this->renderView($path,$data));
+        return $this->renderLayout($this->renderView($path, $data));
     }
     private function renderLayout($content)
     {
-        if (file_exists(__DIR__.'/../../app/Views/Components/layout.php')){
+        if (file_exists(__DIR__.'/../../app/Views/Components/layout.php')) {
             ob_start();
             include __DIR__.'/../../app/Views/Components/layout.php';
             return ob_get_clean();
@@ -25,9 +25,9 @@ class View
     }
     private function renderView(string $path,?array $data)
     {
-        if (file_exists(__DIR__.'/../../app/Views/'.$path.'.php')){
+        if (file_exists(__DIR__.'/../../app/Views/'.$path.'.php')) {
             ob_start();
-            if ($data){
+            if ($data) {
                 extract($data);
             }
             include __DIR__.'/../../app/Views/'.$path.'.php';

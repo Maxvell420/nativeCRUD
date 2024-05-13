@@ -9,9 +9,9 @@ class Router
 {
     public function getRoute(string $uri):Route
     {
-        $routes = require __DIR__ . '/../../app/Routes/routes.php';
+        $routes = include __DIR__ . '/../../app/Routes/routes.php';
         foreach ($routes as $route) {
-            if ($this->checkRoute($route,$uri)){
+            if ($this->checkRoute($route, $uri)) {
                 return $route;
             }
         }
@@ -19,6 +19,6 @@ class Router
     }
     private function checkRoute(Route $route,string $uri)
     {
-        return str_starts_with($uri,$route->getPath());
+        return str_starts_with($uri, $route->getPath());
     }
 }

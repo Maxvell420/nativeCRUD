@@ -30,24 +30,24 @@ class UserController extends Controller
     }
     public function edit()
     {
-//        Проверка на авторизацию
-        if (!isset($_SESSION['auth'])){
+        //        Проверка на авторизацию
+        if (!isset($_SESSION['auth'])) {
             header('Location: /login');
             exit();
         } else {
             $id = $_SESSION['user']['id'];
             $user = $this->userService->findUserByParams(['id'=>$id]);
         }
-        return $this->render('User/edit',['user'=>$user]);
+        return $this->render('User/edit', ['user'=>$user]);
     }
     public function update(array $data)
     {
-        if (!isset($_SESSION['auth'])){
+        if (!isset($_SESSION['auth'])) {
             header('Location: /login');
             exit();
         } else {
             $id = $_SESSION['user']['id'];
-            $this->userService->updateUser($id,$data);
+            $this->userService->updateUser($id, $data);
             $_SESSION['message']='You have updated you record';
         }
         header('Location: /userEdit');
@@ -56,7 +56,7 @@ class UserController extends Controller
     }
     public function logout()
     {
-        if (isset($_SESSION['auth'])){
+        if (isset($_SESSION['auth'])) {
             session_destroy();
         }
         header('Location: /login');
@@ -65,10 +65,10 @@ class UserController extends Controller
     public function save(array $data)
     {
         $smartToken = $data['smart-token'];
-        $captchaService = new YandexCapchaService('YOUR_YANDEX_SERVER_KEY',$smartToken);
+        $captchaService = new YandexCapchaService('YOUR_YANDEX_SERVER_KEY', $smartToken);
         unset($data['smart-token']);
         $captchaCheck = $captchaService->check_captcha();
-        if (!$captchaCheck){
+        if (!$captchaCheck) {
             header('Location: /login');
             $_SESSION['message']='You have not beaten captcha...';
             exit();

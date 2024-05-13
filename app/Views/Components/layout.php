@@ -13,13 +13,13 @@
         </div>
     </a>
     <?php
-    if (isset($_SESSION['message'])){ ?>
+    if (isset($_SESSION['message'])) { ?>
             <div>
-                <?= $_SESSION['message']?>
+                <?php echo $_SESSION['message']?>
             </div>
         <?php
     }
-    if (isset($_SESSION['auth'])){ ?>
+    if (isset($_SESSION['auth'])) { ?>
         <a href="/userEdit">
             <div class="headerButton">
                 Edit User Data
@@ -47,7 +47,7 @@
     ?>
 </header>
 <main>
-    <?= $content??'not found' ?>
+    <?php echo $content??'not found' ?>
 </main>
 </body>
 </html>

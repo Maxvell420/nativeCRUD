@@ -1,8 +1,8 @@
 <?php
-if (isset($_SESSION['errors'])){
+if (isset($_SESSION['errors'])) {
     foreach ($_SESSION['errors'] as $error) { ?>
         <div>
-            <?= $error?>
+            <?php echo $error?>
         </div>
             <?php
     }
@@ -18,15 +18,15 @@ if (isset($_SESSION['errors'])){
         ></div>
         <div>
             <label for="name">Name</label>
-            <input id="name" type="text" name="name" value="<?=$_SESSION['data']['name']??null?>">
+            <input id="name" type="text" name="name" value="<?php echo $_SESSION['data']['name']??null?>">
         </div>
         <div>
             <label for="auth">Phone Number or mail</label>
-            <input type="text" id="auth" name="auth" value="<?=$_SESSION['data']['auth']??null?>">
+            <input type="text" id="auth" name="auth" value="<?php echo $_SESSION['data']['auth']??null?>">
         </div>
         <div>
             <label for="password">Password</label>
-            <input id="password" type="password" name="password" value="<?=$_SESSION['data']['password']??null?>">
+            <input id="password" type="password" name="password" value="<?php echo $_SESSION['data']['password']??null?>">
         </div>
         <div>
             <label for="passwordRepeat">Repeat password</label>

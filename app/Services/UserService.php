@@ -20,7 +20,7 @@ class UserService
     }
     public function updateUser(string|int $id, array $data)
     {
-        $this->user->update($id,$data);
+        $this->user->update($id, $data);
     }
     public function auth(array $data)
     {

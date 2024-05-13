@@ -1,8 +1,8 @@
 <?php
-if (isset($_SESSION['errors'])){
+if (isset($_SESSION['errors'])) {
     foreach ($_SESSION['errors'] as $error) { ?>
         <div>
-            <?= $error?>
+            <?php echo $error?>
         </div>
         <?php
     }
@@ -12,15 +12,15 @@ if (isset($_SESSION['errors'])){
     <form action="/userUpdate" method="POST">
         <div>
             <label for="name">Name</label>
-            <input id="name" type="text" name="name" value="<?=$user['name']?>">
+            <input id="name" type="text" name="name" value="<?php echo $user['name']?>">
         </div>
         <div>
             <label for="phone">Phone Number</label>
-            <input type="text" id="phone" name="phone" value="<?=$user['phone']?>">
+            <input type="text" id="phone" name="phone" value="<?php echo $user['phone']?>">
         </div>
         <div>
             <label for="mail">Mail</label>
-            <input type="text" id="mail" name="email" value="<?=$user['email']?>">
+            <input type="text" id="mail" name="email" value="<?php echo $user['email']?>">
         </div>
         <div>
             <label for="password">Password</label>

@@ -18,8 +18,8 @@ class Dispatcher
         $route = $this->route;
         $params = $this->params;
         $controller = new $fullName;
-        if (method_exists($controller,$route->getAction())){
-            return $this->dispatch($controller,$route->getAction(),$params);
+        if (method_exists($controller, $route->getAction())) {
+            return $this->dispatch($controller, $route->getAction(), $params);
         } else {
             throw new \Exception("method {$route->getAction()} of {$route->getController()} do not exist");
         }

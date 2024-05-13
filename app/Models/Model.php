@@ -11,8 +11,9 @@ abstract class Model
     protected \PDO $connection;
     private static $instance = null;
 
-    protected function __construct() {
-        $database = new Database('examplehost', 'exampleUser', 'examplePassword','exampleDatabase');
+    protected function __construct()
+    {
+        $database = new Database('examplehost', 'exampleUser', 'examplePassword', 'exampleDatabase');
         $this->connection = $database->getConnection();
     }
 
@@ -27,16 +28,16 @@ abstract class Model
 
         return self::$instance;
     }
-/*
- * Использую подготовленные запросы которые формирую динамически из данных, которые уже были проверены сервисом
- */
+    /*
+    * Использую подготовленные запросы которые формирую динамически из данных, которые уже были проверены сервисом
+    */
     public function create(array $data)
     {
         $params = implode(", ", array_keys($data));
         $counter = count($data);
         $values = '';
         for ($i=0;$i<$counter;$i++){
-            if ($counter-$i==1){
+            if ($counter-$i==1) {
                 $values.='?';
             } else {
                 $values.='?, ';
@@ -69,7 +70,7 @@ abstract class Model
     }
     protected function createTable(string $query)
     {
-//        Лишний запрос каждый раз?
+        //        Лишний запрос каждый раз?
         $statement = $this->prepare($query);
         $statement->execute();
     }

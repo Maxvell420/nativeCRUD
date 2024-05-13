@@ -11,12 +11,14 @@ class YandexCapchaService
     public function check_captcha(): bool
     {
         $ch = curl_init();
-        $args = http_build_query([
+        $args = http_build_query(
+            [
             "secret" => $this->serverKey,
             "token" => $this->token,
             "ip" => $_SERVER['REMOTE_ADDR'], // Нужно передать IP пользователя.
             // Как правильно получить IP зависит от вашего прокси.
-        ]);
+            ]
+        );
         curl_setopt($ch, CURLOPT_URL, "https://smartcaptcha.yandexcloud.net/validate?$args");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_TIMEOUT, 1);

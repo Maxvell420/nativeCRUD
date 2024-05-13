@@ -5,7 +5,8 @@ namespace Core\Route;
 class Route
 {
     public function __construct( private string $method, private string $path, private string $controller, private string $action)
-    {}
+    {
+    }
     public function getController(): string
     {
         return $this->controller;

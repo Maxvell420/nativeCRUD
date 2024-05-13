@@ -8,6 +8,6 @@ class Controller
 {
     protected function render(string $viewName,array $data = null)
     {
-        return new View($viewName,$data);
+        return new View($viewName, $data);
     }
 }
